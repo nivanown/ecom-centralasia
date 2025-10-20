@@ -1,0 +1,18 @@
+/* 1470 */
+@media (max-width: 1470px) {
+
+html {
+  font-size: 1.1vw;
+  }
+
+.brands {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  }
+
+.brands-sm-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  }
+
+}
