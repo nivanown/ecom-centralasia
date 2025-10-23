@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
 function initCircle() {
     const elements = document.querySelectorAll('.people__name');
 
-    // если ширина >= 1280 — включаем
     if (window.innerWidth >= 1280) {
         elements.forEach(el => {
             if (!el.__circleType) {
@@ -59,7 +58,6 @@ function initCircle() {
             }
         });
     } else {
-        // если меньше — отключаем
         elements.forEach(el => {
             if (el.__circleType) {
                 el.__circleType.destroy();
@@ -154,4 +152,88 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+/*- modal -*/
+const myModal = new HystModal({
+    closeOnEsc: true,
+    backscroll: true,      
+});
+
+/*- phone-field -*/
+document.addEventListener('DOMContentLoaded', () => {
+    const formatPhoneInput = (phoneInput) => {
+        phoneInput.addEventListener('input', () => {
+            let value = phoneInput.value.replace(/\D/g, '');
+            if (!value.startsWith('998')) {
+                value = '998' + value;
+            }
+            value = value.slice(0, 12);
+            const formattedValue = `+${value.slice(0, 3)} ${value.slice(3, 5)} ${value.slice(5, 8)} ${value.slice(8, 10)} ${value.slice(10, 12)}`;
+            phoneInput.value = formattedValue.trim();
+        });
+
+        phoneInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Backspace') {
+                const cursorPosition = phoneInput.selectionStart;
+                const value = phoneInput.value;
+                if (cursorPosition <= 5) {
+                    event.preventDefault();
+                    return;
+                }
+                const prevChar = value[cursorPosition - 1];
+                if (/\s/.test(prevChar)) {
+                    event.preventDefault();
+
+                    const newValue = value.slice(0, cursorPosition - 1) + value.slice(cursorPosition);
+                    phoneInput.value = newValue;
+
+                    phoneInput.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
+                }
+            }
+        });
+
+        phoneInput.addEventListener('focus', () => {
+            if (!phoneInput.value || phoneInput.value === '+998') {
+                phoneInput.value = '+998 ';
+            }
+        });
+
+        phoneInput.addEventListener('blur', () => {
+            if (phoneInput.value === '+998 ') {
+                phoneInput.value = '';
+            }
+        });
+    };
+
+    const phoneInputs = document.querySelectorAll('.phone-input');
+    phoneInputs.forEach((phoneInput) => {
+        formatPhoneInput(phoneInput);
+    });
+});
+
+/*- header -*/
+const header = document.querySelector('header');
+const remToPx = rem => rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+const headerHeightPx = remToPx(5.3125);
+
+let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+window.addEventListener('scroll', () => {
+  const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (currentScrollTop > headerHeightPx) {
+    if (currentScrollTop < lastScrollTop) {
+      header.classList.add('fixed');
+      header.classList.remove('no-fixed');
+    } else {
+      header.classList.remove('fixed');
+      header.classList.add('no-fixed');
+    }
+  } else {
+    header.classList.remove('fixed', 'no-fixed');
+  }
+
+  lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+});
+
 
