@@ -183,6 +183,131 @@ ul, ol {
   list-style: none;
 }
 
+/* label */
+label {
+  display: block;
+  margin: 0 0 0.3125rem;
+  font-size: 1rem;
+  font-weight: var(--primary-font-weight);
+  line-height: 1.5rem;
+  cursor: text;
+}
+
+/* input */
+input[type=tel],
+input[type=text],
+input[type=email],
+input[type=password] {
+  margin: 0;
+  padding: 0 1.25rem;
+  width: 100%;
+  height: 3.625rem;
+  color: var(--primary-text-color);
+  font-size: 1rem;
+  font-family: var(--primary-font-family);
+  font-weight: var(--primary-font-weight);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(180deg, rgb(12, 13, 15) 0%, rgb(7, 8, 10) 100%);
+  border-radius: 0.75rem;
+  box-shadow: 0 0.0625rem 0.0625rem 0 rgba(255, 255, 255, 0.1) inset;
+  transition: 0.5s all;
+}
+
+input[type=tel]:focus,
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=password]:focus {
+  outline: none !important;
+}
+
+input[type=tel]::-moz-placeholder,
+input[type=text]::-moz-placeholder,
+input[type=email]::-moz-placeholder,
+input[type=password]::-moz-placeholder {
+  color: var(--secondary-text-color);
+}
+
+input[type=tel]::-webkit-input-placeholder,
+input[type=text]::-webkit-input-placeholder,
+input[type=email]::-webkit-input-placeholder,
+input[type=password]::-webkit-input-placeholder {
+  color: var(--secondary-text-color);
+}
+
+/* input-field */
+.input-field {
+  position: relative;
+  padding: 0 0.875rem;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(180deg, rgb(12, 13, 15) 0%, rgb(7, 8, 10) 100%);
+  border-radius: 0.75rem;
+  box-shadow: 0 0.0625rem 0.0625rem 0 rgba(255, 255, 255, 0.1) inset;
+}
+.input-field label {
+  position: absolute;
+  display: block;
+  margin: 0;
+  top: 1.125rem;
+  left: 1.25rem;
+  color: var(--secondary-text-color);
+  font-size: 1rem;
+  line-height: 1.25rem;
+  transition: 0.5s all;
+}
+.input-field input {
+  padding: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+.input-field input:focus {
+  padding: 1.625rem 0 0.75rem;
+}
+.input-field input:focus + label {
+  top: 0.5625rem;
+  left: 0.875rem;
+  font-size: 0.75rem;
+  line-height: 0.9375rem;
+}
+.input-field input:valid {
+  padding: 1.625rem 0 0.75rem;
+}
+.input-field input:valid + label {
+  top: 0.5625rem;
+  left: 0.875rem;
+  font-size: 0.75rem;
+  line-height: 0.9375rem;
+}
+
+/* textarea */
+textarea {
+  margin: 0;
+  padding: 1.25rem 1.25rem;
+  width: 100%;
+  height: 13.5rem;
+  color: var(--primary-text-color);
+  font-size: 1rem;
+  font-family: var(--primary-font-family);
+  font-weight: var(--primary-font-weight);
+  line-height: 1.25rem;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(180deg, rgb(12, 13, 15) 0%, rgb(7, 8, 10) 100%);
+  border-radius: 0.75rem;
+  box-shadow: 0 0.0625rem 0.0625rem 0 rgba(255, 255, 255, 0.1) inset;
+  transition: 0.5s all;
+  overflow: auto;
+  resize: none;
+}
+textarea::-moz-placeholder {
+  color: var(--secondary-text-color);
+}
+textarea::-webkit-input-placeholder {
+  color: var(--secondary-text-color);
+}
+textarea:focus {
+  outline: none !important;
+}
+
 /* wrapper */
 .wrapper {
   position: relative;
@@ -235,6 +360,11 @@ ul, ol {
   pointer-events: none;
   opacity: 0.3;
   content: "";
+}
+.btn span {
+  position: relative;
+  display: block;
+  z-index: 5;
 }
 .btn_style-two:before {
   padding: 0.125rem;
@@ -1651,6 +1781,74 @@ ul, ol {
   font-weight: var(--tertiary-font-weight);
 }
 
+/* hystmodal */
+.hystmodal__wrap {
+  padding: 3.125rem 2.8125rem;
+}
+.hystmodal button.hystmodal__close {
+  width: 2.75rem;
+  height: 2.75rem;
+  top: -2.5rem;
+  right: -3.125rem;
+  border: 0.0625rem solid var(--tertiary-border-color);
+  background: linear-gradient(131.09deg, rgb(250, 21, 147) 2.08%, rgba(117, 0, 55, 0.5) 37.27%, rgb(0, 75, 107) 67.87%, rgb(149, 222, 255) 100%);
+  border-radius: 100%;
+  box-shadow: 0rem 0rem 1.25rem rgba(245, 48, 107, 0.1);
+  transition: 0.5s opacity;
+}
+.hystmodal button.hystmodal__close:hover {
+  opacity: 0.8;
+}
+.hystmodal button.hystmodal__close:before {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url(../img/icons/modal-close.svg) center no-repeat;
+  background-size: 1.125rem;
+  content: "";
+}
+.hystmodal div.hystmodal__window {
+  max-width: 30.625rem;
+  width: 100%;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.12);
+  background: var(--primary-background-color);
+  border-radius: 1.5rem;
+  box-shadow: 0 0.25rem 3.75rem 0 rgba(0, 0, 0, 0.05);
+}
+.hystmodal__styled {
+  padding: 1.875rem;
+}
+.hystmodal__title {
+  margin: 0 0 0.875rem;
+  font-size: 1.75rem;
+  font-weight: var(--quaternary-font-weight);
+  line-height: 2rem;
+}
+.hystmodal__sub-title {
+  margin: 0 0 1.5rem;
+  color: var(--secondary-text-color);
+  font-size: 1rem;
+  line-height: 1.25rem;
+}
+.hystmodal__sub-title_indent-bt-none {
+  margin: 0;
+}
+.hystmodal__form fieldset {
+  margin: 0 0 0.9375rem;
+}
+.hystmodal__form fieldset:last-child {
+  margin: 0;
+  padding: 0.625rem 0 0;
+}
+.hystmodal__sm-title {
+  margin: 0 0 0.625rem;
+  font-size: 1.25rem;
+  line-height: 1.4375rem;
+}
+
 /* 1470 */
 @media (max-width: 1470px) {
   html {
@@ -1682,13 +1880,30 @@ ul, ol {
   html {
     font-size: 4.27vw;
   }
+  .wrapper {
+    padding: 5.3125rem 0 0;
+  }
   .container {
     padding: 0 0.9375rem;
     max-width: 100%;
   }
   .header {
+    position: absolute;
     padding: 1.25rem 0;
+    width: 100%;
+    top: 0;
+    left: 0;
     border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.2);
+    background: var(--primary-background-color);
+    z-index: 60;
+    transition: 0.5s transform;
+  }
+  .header.no-fixed {
+    transform: translateY(-100%);
+  }
+  .header.fixed {
+    position: fixed;
+    transform: translateY(0);
   }
   .header__top-panel {
     display: none;
@@ -2159,12 +2374,15 @@ ul, ol {
     gap: 1.875rem 0;
   }
   .footer__copy {
-    font-size: 0.875rem;
-    line-height: 1rem;
+    font-size: 12px;
+    line-height: 14px;
+  }
+  .footer__nav ul {
+    gap: 0 0.625rem;
   }
   .footer__nav li {
-    font-size: 0.875rem;
-    line-height: 1rem;
+    font-size: 0.75rem;
+    line-height: 0.875rem;
   }
   .to-top__icon {
     width: 0.875rem;
@@ -2172,5 +2390,41 @@ ul, ol {
   .to-top__text {
     font-size: 0.75rem;
     line-height: 0.875rem;
+  }
+  .hystmodal__wrap {
+    padding: 1.25rem 0.9375rem;
+  }
+  .hystmodal__styled {
+    padding: 1.25rem;
+  }
+  .hystmodal div.hystmodal__window {
+    border-radius: 1.25rem;
+  }
+  .hystmodal button.hystmodal__close {
+    width: 2.25rem;
+    height: 2.25rem;
+    top: -0.75rem;
+    right: -0.75rem;
+  }
+  .hystmodal__title {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+  .hystmodal__sub-title {
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+  }
+  .input-field label {
+    font-size: 0.875rem;
+  }
+  input[type=tel],
+  input[type=text],
+  input[type=email],
+  input[type=password] {
+    font-size: 0.875rem;
+  }
+  textarea {
+    height: 9.375rem;
+    font-size: 0.875rem;
   }
 }
