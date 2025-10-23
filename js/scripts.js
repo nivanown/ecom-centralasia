@@ -48,11 +48,29 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /*- people -*/
-document.querySelectorAll('.people__name').forEach(el => {
-    new CircleType(el)
-        .dir(-1)
-        .radius(48);
-});
+function initCircle() {
+    const elements = document.querySelectorAll('.people__name');
+
+    // если ширина >= 1280 — включаем
+    if (window.innerWidth >= 1280) {
+        elements.forEach(el => {
+            if (!el.__circleType) {
+                el.__circleType = new CircleType(el).dir(-1).radius(48);
+            }
+        });
+    } else {
+        // если меньше — отключаем
+        elements.forEach(el => {
+            if (el.__circleType) {
+                el.__circleType.destroy();
+                el.__circleType = null;
+            }
+        });
+    }
+}
+
+initCircle();
+window.addEventListener('resize', initCircle);
 
 /*- gallery-slider -*/
 var swiper;
@@ -111,6 +129,29 @@ document.querySelector('.to-top').addEventListener('click', function (e) {
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
+    });
+});
+
+/*- mobile-dropdown -*/
+document.addEventListener('DOMContentLoaded', function () {
+    const mobileBtn = document.querySelector('.mobile-btn');
+    const mobileDropdown = document.querySelector('.mobile-dropdown');
+
+    if (!mobileBtn || !mobileDropdown) return;
+
+    mobileBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        mobileBtn.classList.toggle('open');
+        mobileDropdown.classList.toggle('show');
+    });
+
+    document.addEventListener('click', function (e) {
+        const isClickInside = mobileDropdown.contains(e.target) || mobileBtn.contains(e.target);
+
+        if (!isClickInside) {
+            mobileBtn.classList.remove('open');
+            mobileDropdown.classList.remove('show');
+        }
     });
 });
 
