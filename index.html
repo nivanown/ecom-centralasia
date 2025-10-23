@@ -9,7 +9,8 @@
         <meta charset="UTF-8">
 
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/swiper-bundle.min.css">    
+        <link rel="stylesheet" href="css/swiper-bundle.min.css">
+        <link rel="stylesheet" href="css/hystmodal.min.css"> 
         <link rel="stylesheet" href="css/fancybox.min.css">
 
         <link rel="icon" href="favicon.ico">
@@ -131,9 +132,9 @@
                                 <span class="tag">Стартапы/МСБ</span>
                             </div>
                             <div class="hero__btns">
-                                <a href="#" class="btn btn_style-two">
+                                <button class="btn btn_style-two" data-hystmodal="#contact-modal">
                                     <span>Успей забронировать свой стенд!</span>
-                                </a>
+                                </button>
                                 <a href="#" class="btn">
                                     <span>Стать спонсором</span>
                                 </a>
@@ -386,7 +387,9 @@
                         </div>
                     </div>
                     <div class="btn-panel">
-                        <a href="#" class="btn btn_style-two btn_full-size">Успейте занять место среди лидеров!</a>
+                        <a href="#" class="btn btn_style-two btn_full-size">
+                            <span>Успейте занять место среди лидеров!</span>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -1225,7 +1228,9 @@
                             </a>
                         </div>
                     </div>
-                    <a href="#" class="btn btn_style-two btn_full-size">Успейте занять место среди лидеров!</a>
+                    <a href="#" class="btn btn_style-two btn_full-size">
+                        <span>Успейте занять место среди лидеров!</span>
+                    </a>
                 </div>
             </section>
         </main>
@@ -1297,9 +1302,54 @@
     </div>
     <!-- wrapper end -->
 
+    <!-- modal Start -->
+    <div id="contact-modal" class="hystmodal" aria-hidden="true">
+        <div class="hystmodal__wrap">
+            <div class="hystmodal__window" role="dialog" aria-modal="true">
+                <button class="hystmodal__close" data-hystclose>Закрыть</button>
+                <div class="hystmodal__styled">
+                    <h3 class="hystmodal__title">Оставьте ваши данные</h3>
+                    <p class="hystmodal__sub-title">Чтобы бы мы смогли связаться с вами</p>
+                    <div class="hystmodal__form">
+                        <form>
+                            <fieldset>
+                                <div class="input-field">
+                                    <input id="name-m" type="text" autocomplete="off" required="">
+                                    <label for="name-m">Ваше имя</label>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <div class="input-field">
+                                    <input id="email-m" type="text" autocomplete="off" required="">
+                                    <label for="email-m">Ваша почта</label>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <div class="input-field">
+                                    <input id="phone-m" class="phone-input" type="tel" autocomplete="off" required="">
+                                    <label for="phone-m">Ваш номер</label>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <textarea placeholder="Текст сообщения"></textarea>
+                            </fieldset>
+                            <fieldset>
+                                <button class="btn btn_style-two btn_full-size" type="submit">
+                                    <span>Отправить</span>
+                                </button>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal end -->
+
     <!-- Plugin scripts -->
     <script src="js/circletype.min.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/hystmodal.min.js"></script>
     <script src="js/fancybox.min.js"></script>
     <script src="js/dynamic-blocks.js"></script>
 
