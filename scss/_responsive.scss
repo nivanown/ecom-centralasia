@@ -39,14 +39,32 @@ html {
   font-size: 4.27vw;
   }
 
+.wrapper {
+  padding: 5.3125rem 0 0;
+  }
+
 .container {
   padding: 0 0.9375rem;
   max-width: 100%;
   }
 
 .header {
+  position: absolute;
   padding: 1.25rem 0;
+  width: 100%;
+  top: 0;
+  left: 0;
   border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.2);
+  background: var(--primary-background-color);
+  z-index: 60;
+  transition: .5s transform;
+  &.no-fixed {
+    transform: translateY(-100%);
+    }
+  &.fixed {
+    position: fixed;
+    transform: translateY(0);
+    }
   &__top-panel {
     display: none;
     }
@@ -567,13 +585,16 @@ html {
     gap: 1.875rem 0;
     }
   &__copy {
-    font-size: 0.875rem;
-    line-height: 1rem;
+    font-size: 12px;
+    line-height: 14px;
     }
   &__nav {
+    ul {
+      gap: 0 0.625rem;
+      }
     li {
-      font-size: 0.875rem;
-      line-height: 1rem;
+      font-size: 0.75rem;
+      line-height: 0.875rem;
       }
     }
   }
@@ -586,6 +607,54 @@ html {
     font-size: 0.75rem;
     line-height: 0.875rem;
     }
+  }
+
+.hystmodal {
+  &__wrap {
+    padding: 1.25rem 0.9375rem;
+    }
+  &__styled {
+    padding: 1.25rem;
+    }
+  div { 
+    &.hystmodal__window {
+      border-radius: 1.25rem;
+      }
+    }
+  button {
+    &.hystmodal__close {
+      width: 2.25rem;
+      height: 2.25rem;
+      top: -0.75rem;
+      right: -0.75rem;
+      }
+    }
+  &__title {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    }
+  &__sub-title {
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    }
+  }
+
+.input-field {
+  label {
+    font-size: 0.875rem;
+    } 
+  }
+
+input[type='tel'],   
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+  font-size: 0.875rem;
+  }
+
+textarea {
+  height: 9.375rem;
+  font-size: 0.875rem;
   }
 
 }
