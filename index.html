@@ -24,7 +24,12 @@
         <header class="header">
             <div class="container">
                 <div class="header__top-panel">
-                    <ul class="header__social">
+                    <ul class="header__social"
+                        data-breakpoints="767" 
+                        data-targets=".mobile-dropdown" 
+                        data-references=".mobile-dropdown__line" 
+                        data-positions="after"
+                        >
                         <li>
                             <a href="#">
                                 <img src="img/icons/telegram.svg" alt="icon">
@@ -41,7 +46,12 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="header__col">
+                    <div class="header__col"
+                        data-breakpoints="767" 
+                        data-targets=".mobile-dropdown" 
+                        data-references=".header__social" 
+                        data-positions="after"
+                        >
                         <a href="#" class="personal-account-btn">Персональный кабинет</a>
                         <ul class="language">
                             <li>
@@ -57,7 +67,11 @@
                     </div>
                 </div>
                 <div class="header__bottom-panel">
-                    <nav class="main-nav">
+                    <nav class="main-nav"
+                    data-breakpoints="767" 
+                    data-targets=".mobile-dropdown" 
+                    data-references=".mobile-dropdown__line" 
+                    data-positions="before">
                         <ul>
                             <li>
                                 <a href="#">Выставка</a>
@@ -86,7 +100,11 @@
                     <div class="logo">
                         <img src="img/icons/logo.svg" alt="ecom-centralasia">
                     </div>
+                    <span class="mobile-btn"></span>
                 </div>
+            </div>
+            <div class="mobile-dropdown">
+                <div class="mobile-dropdown__line"></div>
             </div>
         </header>
         <!-- header end -->
@@ -1283,6 +1301,7 @@
     <script src="js/circletype.min.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
     <script src="js/fancybox.min.js"></script>
+    <script src="js/dynamic-blocks.js"></script>
 
     <!-- Scripts -->
     <script src="js/scripts.js"></script>
