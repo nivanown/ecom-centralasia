@@ -67,8 +67,10 @@ function initCircle() {
     }
 }
 
-initCircle();
-window.addEventListener('resize', initCircle);
+document.fonts.ready.then(() => {
+    initCircle();
+    window.addEventListener('resize', initCircle);
+});
 
 /*- gallery-slider -*/
 var swiper;
