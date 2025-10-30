@@ -236,15 +236,15 @@ textarea {
   &_style-two {
     &:before {
       padding: 0.125rem;
-      background: linear-gradient(131.09deg,
+      background: linear-gradient(175deg,
         rgba(250, 21, 147, 0.5) 2.08%,
         rgba(117, 0, 55, 0.5) 37.27%,
         rgba(0, 75, 107, 0.5) 67.87%,
         rgba(149, 222, 255, 0.5) 100%);
-      background-size: 300% 300%;
+      background-size: 200% 200%;
       opacity: 1;
       transition: .5s opacity;
-      animation: gradient-wave 5s ease-in-out infinite;
+      animation: gradient-wave 3s ease-in-out infinite;
       }
     &:after {
       position: absolute;
@@ -253,7 +253,7 @@ textarea {
       height: 100%;
       top: 0;
       left: 0;
-      background: linear-gradient(131.09deg, rgba(250, 21, 147, 0.9) 2.08%, rgba(117, 0, 55, 0.5) 37.27%, rgba(0, 75, 107, 0.9) 67.87%, rgba(149, 222, 255, 0.9) 100%);
+      background: radial-gradient(70% 390.67% at 50% 34.17%, #FA1593 0%, #750037 35.94%, #004B6B 67.19%, #95DEFF 100%);
       border-radius: 2.125rem;
       content: "";
       transition: .5s opacity;
